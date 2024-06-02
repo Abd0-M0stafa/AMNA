@@ -27,7 +27,7 @@ class ApiServices {
         options: Options(
             headers: headers ??
                 {
-                  'Content-Type': 'application/json',
+                  'Content-Type': ApiConstance.contentType,
                 }));
     return result.data;
   }
