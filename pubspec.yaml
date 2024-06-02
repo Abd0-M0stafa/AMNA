@@ -35,6 +35,8 @@ dependencies:
   dotted_border: ^2.1.0
   dropdown_button2: ^2.3.9
   fl_chart: ^0.67.0
+  font_awesome_flutter: ^10.7.0
+
   flutter:
     sdk: flutter
 

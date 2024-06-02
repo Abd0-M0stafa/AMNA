@@ -1,8 +1,7 @@
 import 'package:cancer/core/utils/app_colors.dart';
-import 'package:cancer/features/home/presentation/view/home_view.dart';
 import 'package:cancer/features/splash/presentation/views/widgets/sligding_text.dart';
+import 'package:cancer/features/welcome/presentation/view/wlcome_view.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -69,7 +68,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
         Navigator.push(
           context,
           MaterialPageRoute<void>(
-            builder: (BuildContext context) => HomeView(),
+            builder: (BuildContext context) => const WelcomeView(),
           ),
         );
       },
