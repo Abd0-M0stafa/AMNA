@@ -10,7 +10,7 @@ class LoginRequestModel {
     return {
       "login-Email": email,
       "login-password": password,
-      "account_type": accountType
+      "account_type": accountType,
     };
   }
 }
