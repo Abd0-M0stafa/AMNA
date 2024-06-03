@@ -14,14 +14,14 @@ class RegisterSecondSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        EmailTextField(),
-        const SizedBox(
-          height: 15,
-        ),
-        PasswordTextField(),
-        const SizedBox(
-          height: 15,
-        ),
+        // EmailTextField(),
+        // const SizedBox(
+        //   height: 15,
+        // ),
+        // PasswordTextField(),
+        // const SizedBox(
+        //   height: 15,
+        // ),
         ConfirmPassTextField(),
         const SizedBox(
           height: 20,

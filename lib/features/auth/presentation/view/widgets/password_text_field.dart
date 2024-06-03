@@ -3,7 +3,14 @@ import 'package:cancer/features/auth/presentation/view/widgets/custttom_text_fie
 import 'package:flutter/material.dart';
 
 class PasswordTextField extends StatefulWidget {
-  const PasswordTextField({super.key});
+  const PasswordTextField({
+    super.key,
+    required this.validator,
+    required this.onChanged,
+  });
+
+  final String? Function(String?)? validator;
+  final Function(String)? onChanged;
 
   @override
   State<PasswordTextField> createState() => _PasswordTextFieldState();
@@ -42,23 +49,8 @@ class _PasswordTextFieldState extends State<PasswordTextField> {
               ),
             ),
 
-      // validator: (value) {
-      //   password = value;
-      //   if (value == null || value.isEmpty) {
-      //     return 'Please enter your Password';
-      //   }
-      //   if (value.length < 9) {
-      //     return 'The minimum password length is 9';
-      //   } else if (RegExp(
-      //           r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$')
-      //       .hasMatch(value)) {
-      //     return null;
-      //   }
-      //   return 'Your password must contains Uppercase,\nLowercase, Special characters and Numbers';
-      // },
-      // onChanged: (data) {
-      //   password = data;
-      // },
+      validator: widget.validator,
+      onChanged: widget.onChanged,
       text: 'Enter your Password',
     );
   }

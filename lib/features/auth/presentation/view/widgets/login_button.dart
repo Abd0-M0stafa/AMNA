@@ -1,25 +1,66 @@
+import 'package:cancer/core/helper/snake_bar.dart';
 import 'package:cancer/core/utils/app_colors.dart';
+import 'package:cancer/features/auth/data/models/login_request_model.dart';
+import 'package:cancer/features/auth/presentation/view_model/login_cubit/login_cubit.dart';
+import 'package:cancer/features/auth/presentation/view_model/login_cubit/login_states.dart';
+import 'package:cancer/features/home/presentation/view/home_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LoginButton extends StatelessWidget {
-  const LoginButton({super.key});
+  const LoginButton(
+      {super.key, required this.globalKey, this.email, this.pass});
+
+  final String? email;
+  final String? pass;
+  final GlobalKey<FormState> globalKey;
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          backgroundColor: AppColors.primary,
-        ),
-        onPressed: () {},
-        child: const Text(
-          'Login',
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
+    return BlocConsumer<LoginCubit, LoginStates>(
+      listener: (context, state) {
+        if (state is LoginFailureState) {
+          customSnakeBar(context, text: state.errMessage);
+        } else if (state is LoginSuccessState) {
+          navToHome(context);
+        }
+      },
+      builder: (context, state) {
+        return SizedBox(
+          width: double.infinity,
+          child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: AppColors.primary,
+            ),
+            onPressed: (state is LoginLoadinglState)
+                ? null
+                : () async {
+                    if (globalKey.currentState!.validate()) {
+                      LoginRequestModel login = LoginRequestModel(
+                          email: email!, password: pass!, accountType: 'user');
+                      await BlocProvider.of<LoginCubit>(context).login(login);
+                    }
+                  },
+            child: (state is LoginLoadinglState)
+                ? const CircularProgressIndicator()
+                : const Text(
+                    'Login',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
           ),
-        ),
+        );
+      },
+    );
+  }
+
+  void navToHome(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute<void>(
+        builder: (BuildContext context) => const HomeView(),
       ),
     );
   }

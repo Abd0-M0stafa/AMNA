@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class LoginWith extends StatelessWidget {
-  const LoginWith({super.key});
+  const LoginWith({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
