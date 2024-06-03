@@ -1,5 +1,5 @@
 import 'package:cancer/core/utils/app_colors.dart';
-import 'package:cancer/features/auth/presentation/view/regester_view.dart';
+import 'package:cancer/features/auth/presentation/view/register_view.dart';
 import 'package:flutter/material.dart';
 
 class CustomRegeterButton extends StatelessWidget {
@@ -22,12 +22,12 @@ class CustomRegeterButton extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute<void>(
-              builder: (BuildContext context) => const RegesterView(),
+              builder: (BuildContext context) => const RegisterView(),
             ),
           );
         },
         child: const Text(
-          'Regester',
+          'Register',
           style: TextStyle(
             color: AppColors.primary,
             fontWeight: FontWeight.bold,

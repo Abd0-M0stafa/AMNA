@@ -1,11 +1,15 @@
 import 'package:cancer/core/utils/app_colors.dart';
-import 'package:cancer/features/auth/presentation/view/regester_view.dart';
 import 'package:flutter/material.dart';
 
 class Reminder extends StatelessWidget {
-  const Reminder({super.key, required this.question, required this.button});
+  const Reminder(
+      {super.key,
+      required this.question,
+      required this.button,
+      required this.onPressed});
   final String question;
   final String button;
+  final void Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -22,14 +26,7 @@ class Reminder extends StatelessWidget {
           width: 3,
         ),
         TextButton(
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute<void>(
-                builder: (BuildContext context) => const RegesterView(),
-              ),
-            );
-          },
+          onPressed: onPressed,
           child: Text(
             button,
             style: TextStyle(

@@ -1,13 +1,14 @@
-import 'package:cancer/features/auth/presentation/view/register_view.dart';
+import 'package:cancer/features/auth/presentation/view/login_view.dart';
+import 'package:cancer/features/auth/presentation/view/widgets/confirm_pass_text_field.dart';
 import 'package:cancer/features/auth/presentation/view/widgets/email_text_field.dart';
-import 'package:cancer/features/auth/presentation/view/widgets/login_button.dart';
-import 'package:cancer/features/auth/presentation/view/widgets/login_with.dart';
 import 'package:cancer/features/auth/presentation/view/widgets/password_text_field.dart';
+import 'package:cancer/features/auth/presentation/view/widgets/register_button.dart';
+import 'package:cancer/features/auth/presentation/view/widgets/register_with.dart';
 import 'package:cancer/features/auth/presentation/view/widgets/reminder.dart';
 import 'package:flutter/material.dart';
 
-class LoginSecondSection extends StatelessWidget {
-  const LoginSecondSection({super.key});
+class RegisterSecondSection extends StatelessWidget {
+  const RegisterSecondSection({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,20 +20,24 @@ class LoginSecondSection extends StatelessWidget {
         ),
         PasswordTextField(),
         const SizedBox(
+          height: 15,
+        ),
+        ConfirmPassTextField(),
+        const SizedBox(
           height: 20,
         ),
-        LoginButton(),
+        RegisterButton(),
         const SizedBox(
           height: 4,
         ),
         Reminder(
-          question: 'Do Not Have an Account?',
-          button: 'Register',
+          question: 'Already Have an Account?',
+          button: 'Login',
           onPressed: () {
             Navigator.push(
               context,
               MaterialPageRoute<void>(
-                builder: (BuildContext context) => const RegisterView(),
+                builder: (BuildContext context) => const LoginView(),
               ),
             );
           },
@@ -40,7 +45,7 @@ class LoginSecondSection extends StatelessWidget {
         const SizedBox(
           height: 15,
         ),
-        LoginWith(),
+        RegisterWith(),
         const SizedBox(
           height: 25,
         ),

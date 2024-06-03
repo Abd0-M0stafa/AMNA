@@ -3,15 +3,15 @@ import 'package:cancer/features/auth/presentation/view/widgets/login&register_ic
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class LoginWith extends StatelessWidget {
-  const LoginWith({super.key});
+class RegisterWith extends StatelessWidget {
+  const RegisterWith({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Text(
-          'Or Login With',
+          'Or Register With',
           style: TextStyle(
             color: AppColors.primary,
             fontWeight: FontWeight.bold,
