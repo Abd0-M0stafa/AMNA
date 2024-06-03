@@ -35,7 +35,7 @@ class HomeView extends StatelessWidget {
               Expanded(
                 child: AspectRatio(
                   aspectRatio: 7 / 1,
-                  child: Image.asset('aseeets/images/amna_logo.png'),
+                  child: Image.asset('assets/images/amna_logo.png'),
                 ),
               ),
               DropDownIcon(),

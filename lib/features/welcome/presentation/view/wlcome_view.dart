@@ -21,7 +21,7 @@ class WelcomeView extends StatelessWidget {
             ),
             AspectRatio(
                 aspectRatio: 10 / 7,
-                child: Image.asset('aseeets/images/5911096.png')),
+                child: Image.asset('assets/images/5911096.png')),
             const SizedBox(
               height: 20,
             ),

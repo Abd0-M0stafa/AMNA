@@ -14,7 +14,7 @@ class LoginFirstSection extends StatelessWidget {
         ),
         AspectRatio(
             aspectRatio: 10 / 8.5,
-            child: Image.asset('aseeets/images/login_vector.png')),
+            child: Image.asset('assets/images/login_vector.png')),
         Text(
           '- Welcome Back -',
           style: AppStyles.bold30(context).copyWith(

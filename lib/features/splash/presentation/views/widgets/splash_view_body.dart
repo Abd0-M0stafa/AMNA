@@ -38,7 +38,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
         children: [
           AspectRatio(
               aspectRatio: 2.8 / 1,
-              child: Image.asset('aseeets/images/amna_logo.png')),
+              child: Image.asset('assets/images/amna_logo.png')),
           const SizedBox(
             height: 8,
           ),
