@@ -17,6 +17,7 @@ class _LoginSecondSectionState extends State<LoginSecondSection> {
   String? email;
   String? pass;
   final formKey = GlobalKey<FormState>();
+  TextEditingController? controller;
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +26,7 @@ class _LoginSecondSectionState extends State<LoginSecondSection> {
       child: Column(
         children: [
           EmailTextField(
+            controller: controller,
             onChanged: (data) {
               email = data;
             },
@@ -36,6 +38,7 @@ class _LoginSecondSectionState extends State<LoginSecondSection> {
             height: 15,
           ),
           PasswordTextField(
+            controller: controller,
             onChanged: (data) {
               pass = data;
             },
@@ -47,12 +50,10 @@ class _LoginSecondSectionState extends State<LoginSecondSection> {
             height: 20,
           ),
           LoginButton(
+            controller: controller,
             globalKey: formKey,
             email: email,
             pass: pass,
-          ),
-          const SizedBox(
-            height: 4,
           ),
           Reminder(
             question: 'Do Not Have an Account?',
@@ -67,7 +68,7 @@ class _LoginSecondSectionState extends State<LoginSecondSection> {
             },
           ),
           const SizedBox(
-            height: 15,
+            height: 10,
           ),
           LoginWith(),
           const SizedBox(
@@ -82,24 +83,14 @@ class _LoginSecondSectionState extends State<LoginSecondSection> {
     if (value == null || value.isEmpty) {
       return 'Please enter your Password';
     }
-    if (value.length < 9) {
-      return 'The minimum password length is 9';
-    } else if (RegExp(
-            r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$')
-        .hasMatch(value)) {
-      return null;
-    }
-    return 'Your password must contains Uppercase,\nLowercase, Special characters and Numbers';
+
+    return null;
   }
 
   String? emailValidator(String? value) {
     if (value == null || value.isEmpty) {
       return 'Please enter your Email';
-    } else if (RegExp(
-            r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
-        .hasMatch(value)) {
-      return null;
     }
-    return 'Invalid Email';
+    return null;
   }
 }

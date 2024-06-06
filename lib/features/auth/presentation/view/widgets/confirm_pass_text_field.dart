@@ -1,27 +1,38 @@
+import 'package:cancer/core/utils/app_colors.dart';
 import 'package:cancer/features/auth/presentation/view/widgets/custttom_text_field.dart';
 import 'package:flutter/material.dart';
 
 class ConfirmPassTextField extends StatefulWidget {
-  const ConfirmPassTextField({super.key});
+  const ConfirmPassTextField({
+    super.key,
+    this.validator,
+    required this.onChanged,
+    required this.controller,
+  });
+
+  final String? Function(String?)? validator;
+  final Function(String)? onChanged;
+  final TextEditingController? controller;
 
   @override
   State<ConfirmPassTextField> createState() => _ConfirmPassTextFieldState();
 }
 
 class _ConfirmPassTextFieldState extends State<ConfirmPassTextField> {
-  bool isShown2 = true;
+  bool isShown = true;
+
   @override
   Widget build(BuildContext context) {
     return CustomTextField(
-      obscureText: isShown2,
-      suffixIcon: isShown2
+      obscureText: isShown,
+      suffixIcon: isShown
           ? Padding(
               padding: const EdgeInsets.only(right: 5),
               child: IconButton(
                 color: const Color.fromARGB(255, 197, 192, 192),
                 icon: const Icon(Icons.visibility_off),
                 onPressed: () {
-                  isShown2 = false;
+                  isShown = false;
                   setState(() {});
                 },
               ),
@@ -29,25 +40,17 @@ class _ConfirmPassTextFieldState extends State<ConfirmPassTextField> {
           : Padding(
               padding: const EdgeInsets.only(right: 5),
               child: IconButton(
-                color: const Color.fromARGB(255, 28, 228, 167),
+                color: AppColors.primary,
                 icon: const Icon(Icons.visibility),
                 onPressed: () {
-                  isShown2 = true;
+                  isShown = true;
                   setState(() {});
                 },
               ),
             ),
-      // controller: controller3,
-      // validator: (value) {
-      //   password = value;
-      //   if (value == null || value.isEmpty) {
-      //     return 'Please enter the Password to confirm';
-      //   } else if (value != controller2.text) {
-      //     return 'Not Matching password';
-      //   }
-      //   return null;
-      // },
-      onChanged: (data) {},
+      controller: widget.controller,
+      validator: widget.validator,
+      onChanged: widget.onChanged,
       text: 'Confirm your Password',
     );
   }

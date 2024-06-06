@@ -9,11 +9,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LoginButton extends StatelessWidget {
   const LoginButton(
-      {super.key, required this.globalKey, this.email, this.pass});
+      {super.key,
+      required this.globalKey,
+      this.email,
+      this.pass,
+      required this.controller});
 
   final String? email;
   final String? pass;
   final GlobalKey<FormState> globalKey;
+  final TextEditingController? controller;
 
   @override
   Widget build(BuildContext context) {
@@ -33,16 +38,25 @@ class LoginButton extends StatelessWidget {
               backgroundColor: AppColors.primary,
             ),
             onPressed: (state is LoginLoadinglState)
-                ? null
+                ? () {}
                 : () async {
                     if (globalKey.currentState!.validate()) {
+                      print(email);
+                      print(pass);
                       LoginRequestModel login = LoginRequestModel(
                           email: email!, password: pass!, accountType: 'user');
                       await BlocProvider.of<LoginCubit>(context).login(login);
+                      controller?.clear();
                     }
                   },
             child: (state is LoginLoadinglState)
-                ? const CircularProgressIndicator()
+                ? const SizedBox(
+                    width: 20,
+                    height: 20,
+                    child: CircularProgressIndicator(
+                      color: AppColors.backColor,
+                    ),
+                  )
                 : const Text(
                     'Login',
                     style: TextStyle(
