@@ -44,13 +44,7 @@ class RegisterButton extends StatelessWidget {
                 ? () {}
                 : () async {
                     if (globalKey.currentState!.validate()) {
-                      RegisterRequestModel register = RegisterRequestModel(
-                          name: 'name',
-                          email: email!,
-                          password: pass!,
-                          confirmPassword: confirmPass!);
-                      await BlocProvider.of<RegisterCubit>(context)
-                          .register(register);
+                      await BlocProvider.of<RegisterCubit>(context).register();
                       controller?.clear();
                     }
                   },

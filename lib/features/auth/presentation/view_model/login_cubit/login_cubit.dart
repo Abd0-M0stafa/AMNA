@@ -6,11 +6,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class LoginCubit extends Cubit<LoginStates> {
   LoginCubit(this.authRepo) : super(LoginInitialState());
 
+  String? email;
+  String? password;
+
   final AuthRepo authRepo;
 
-  Future<void> login(LoginRequestModel loginRequestModel) async {
+  Future<void> login() async {
     emit(LoginLoadinglState());
-    final result = await authRepo.login(loginRequestModel);
+    LoginRequestModel login = LoginRequestModel(
+        email: email!, password: password!, accountType: 'user');
+    final result = await authRepo.login(login);
 
     result.fold(
       (failure) => emit(LoginFailureState(failure.errMessage)),

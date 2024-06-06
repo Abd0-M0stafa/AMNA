@@ -4,7 +4,9 @@ import 'package:cancer/features/auth/presentation/view/widgets/login_button.dart
 import 'package:cancer/features/auth/presentation/view/widgets/login_with.dart';
 import 'package:cancer/features/auth/presentation/view/widgets/password_text_field.dart';
 import 'package:cancer/features/auth/presentation/view/widgets/reminder.dart';
+import 'package:cancer/features/auth/presentation/view_model/login_cubit/login_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LoginSecondSection extends StatefulWidget {
   const LoginSecondSection({super.key});
@@ -28,7 +30,7 @@ class _LoginSecondSectionState extends State<LoginSecondSection> {
           EmailTextField(
             controller: controller,
             onChanged: (data) {
-              email = data;
+              BlocProvider.of<LoginCubit>(context).email = data;
             },
             validator: (value) {
               return emailValidator(value);
@@ -40,7 +42,7 @@ class _LoginSecondSectionState extends State<LoginSecondSection> {
           PasswordTextField(
             controller: controller,
             onChanged: (data) {
-              pass = data;
+              BlocProvider.of<LoginCubit>(context).password = data;
             },
             validator: (value) {
               return passValidator(value);
@@ -52,8 +54,6 @@ class _LoginSecondSectionState extends State<LoginSecondSection> {
           LoginButton(
             controller: controller,
             globalKey: formKey,
-            email: email,
-            pass: pass,
           ),
           Reminder(
             question: 'Do Not Have an Account?',

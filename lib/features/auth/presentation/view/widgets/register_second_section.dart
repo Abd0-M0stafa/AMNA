@@ -5,7 +5,9 @@ import 'package:cancer/features/auth/presentation/view/widgets/password_text_fie
 import 'package:cancer/features/auth/presentation/view/widgets/register_button.dart';
 import 'package:cancer/features/auth/presentation/view/widgets/register_with.dart';
 import 'package:cancer/features/auth/presentation/view/widgets/reminder.dart';
+import 'package:cancer/features/auth/presentation/view_model/register_cubit/register_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class RegisterSecondSection extends StatefulWidget {
   const RegisterSecondSection({super.key});
@@ -29,7 +31,7 @@ class _RegisterSecondSectionState extends State<RegisterSecondSection> {
         children: [
           EmailTextField(
             onChanged: (data) {
-              email = data;
+              BlocProvider.of<RegisterCubit>(context).email = data;
             },
             controller: controller,
             validator: (value) {
@@ -41,7 +43,7 @@ class _RegisterSecondSectionState extends State<RegisterSecondSection> {
           ),
           PasswordTextField(
             onChanged: (data) {
-              pass = data;
+              BlocProvider.of<RegisterCubit>(context).password = data;
             },
             controller: controller,
             validator: (value) {
@@ -53,11 +55,11 @@ class _RegisterSecondSectionState extends State<RegisterSecondSection> {
           ),
           ConfirmPassTextField(
             onChanged: (data) {
-              confirmPass = data;
+              BlocProvider.of<RegisterCubit>(context).confirmPassword = data;
             },
             controller: controller,
             validator: (value) {
-              return confirmPassValidator(value);
+              return confirmPassValidator(value, context);
             },
           ),
           const SizedBox(
@@ -97,11 +99,11 @@ class _RegisterSecondSectionState extends State<RegisterSecondSection> {
     );
   }
 
-  String? confirmPassValidator(String? value) {
-    pass = value;
+  String? confirmPassValidator(String? value, BuildContext context) {
+    String? password = BlocProvider.of<RegisterCubit>(context).password;
     if (value == null || value.isEmpty) {
       return 'Please enter the Password to confirm';
-    } else if (value != controller?.text) {
+    } else if (value != password) {
       return 'Not Matching password';
     }
     return null;

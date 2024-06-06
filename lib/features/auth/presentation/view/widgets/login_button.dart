@@ -9,14 +9,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LoginButton extends StatelessWidget {
   const LoginButton(
-      {super.key,
-      required this.globalKey,
-      this.email,
-      this.pass,
-      required this.controller});
+      {super.key, required this.globalKey, required this.controller});
 
-  final String? email;
-  final String? pass;
   final GlobalKey<FormState> globalKey;
   final TextEditingController? controller;
 
@@ -41,11 +35,7 @@ class LoginButton extends StatelessWidget {
                 ? () {}
                 : () async {
                     if (globalKey.currentState!.validate()) {
-                      print(email);
-                      print(pass);
-                      LoginRequestModel login = LoginRequestModel(
-                          email: email!, password: pass!, accountType: 'user');
-                      await BlocProvider.of<LoginCubit>(context).login(login);
+                      await BlocProvider.of<LoginCubit>(context).login();
                       controller?.clear();
                     }
                   },

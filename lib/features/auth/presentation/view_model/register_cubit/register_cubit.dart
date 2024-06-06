@@ -8,11 +8,22 @@ class RegisterCubit extends Cubit<RegisterState> {
   RegisterCubit(this.authRepo) : super(RegisterStateInitial());
 
   final AuthRepo authRepo;
+  String? email;
+  String? password;
+  String? confirmPassword;
 
-  Future<void> register(RegisterRequestModel registerRequestModel) async {
-    final result = await authRepo.register(registerRequestModel);
+  Future<void> register() async {
+    emit(RegisterStateLoading());
+    RegisterRequestModel register = RegisterRequestModel(
+        name: 'name',
+        email: email!,
+        password: password!,
+        confirmPassword: confirmPassword!);
+    final result = await authRepo.register(register);
     result.fold(
-      (failure) => emit(RegisterStateFailure(failure.errMessage)),
+      (failure) => emit(
+        RegisterStateFailure(failure.errMessage),
+      ),
       (success) => emit(
         RegisterStateSuccess(),
       ),
