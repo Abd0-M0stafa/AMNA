@@ -1,3 +1,3 @@
 class ApiEndPoints {
-  static const String loginEndPoint = '';
+  static const String loginEndPoint = 'login';
 }
