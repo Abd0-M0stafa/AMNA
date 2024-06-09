@@ -1,6 +1,5 @@
 import 'package:cancer/core/helper/snake_bar.dart';
 import 'package:cancer/core/utils/app_colors.dart';
-import 'package:cancer/features/auth/data/models/login_request_model.dart';
 import 'package:cancer/features/auth/presentation/view_model/login_cubit/login_cubit.dart';
 import 'package:cancer/features/auth/presentation/view_model/login_cubit/login_states.dart';
 import 'package:cancer/features/home/presentation/view/home_view.dart';

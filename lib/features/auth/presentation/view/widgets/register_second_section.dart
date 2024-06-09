@@ -5,6 +5,7 @@ import 'package:cancer/features/auth/presentation/view/widgets/password_text_fie
 import 'package:cancer/features/auth/presentation/view/widgets/register_button.dart';
 import 'package:cancer/features/auth/presentation/view/widgets/register_with.dart';
 import 'package:cancer/features/auth/presentation/view/widgets/reminder.dart';
+import 'package:cancer/features/auth/presentation/view/widgets/username_text_field.dart';
 import 'package:cancer/features/auth/presentation/view_model/register_cubit/register_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,9 +18,6 @@ class RegisterSecondSection extends StatefulWidget {
 }
 
 class _RegisterSecondSectionState extends State<RegisterSecondSection> {
-  String? email;
-  String? pass;
-  String? confirmPass;
   final formKey = GlobalKey<FormState>();
   TextEditingController? controller;
 
@@ -29,6 +27,15 @@ class _RegisterSecondSectionState extends State<RegisterSecondSection> {
       key: formKey,
       child: Column(
         children: [
+          UserNameTextField(
+            onChanged: (data) {
+              BlocProvider.of<RegisterCubit>(context).userName = data;
+            },
+            controller: controller,
+          ),
+          const SizedBox(
+            height: 15,
+          ),
           EmailTextField(
             onChanged: (data) {
               BlocProvider.of<RegisterCubit>(context).email = data;
@@ -68,9 +75,6 @@ class _RegisterSecondSectionState extends State<RegisterSecondSection> {
           RegisterButton(
             controller: controller,
             globalKey: formKey,
-            email: email,
-            pass: pass,
-            confirmPass: confirmPass,
           ),
           const SizedBox(
             height: 4,
