@@ -1,6 +1,5 @@
 import 'package:cancer/core/helper/snake_bar.dart';
 import 'package:cancer/core/utils/app_colors.dart';
-import 'package:cancer/features/auth/data/models/register_request_model.dart';
 import 'package:cancer/features/auth/presentation/view_model/register_cubit/register_cubit.dart';
 import 'package:cancer/features/auth/presentation/view_model/register_cubit/register_states.dart';
 import 'package:cancer/features/home/presentation/view/home_view.dart';
@@ -11,15 +10,9 @@ class RegisterButton extends StatelessWidget {
   const RegisterButton({
     super.key,
     required this.globalKey,
-    this.email,
-    this.pass,
     required this.controller,
-    this.confirmPass,
   });
 
-  final String? email;
-  final String? pass;
-  final String? confirmPass;
   final GlobalKey<FormState> globalKey;
   final TextEditingController? controller;
 

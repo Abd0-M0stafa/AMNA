@@ -16,8 +16,6 @@ class LoginSecondSection extends StatefulWidget {
 }
 
 class _LoginSecondSectionState extends State<LoginSecondSection> {
-  String? email;
-  String? pass;
   final formKey = GlobalKey<FormState>();
   TextEditingController? controller;
 
