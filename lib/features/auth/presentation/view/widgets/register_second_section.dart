@@ -54,7 +54,7 @@ class _RegisterSecondSectionState extends State<RegisterSecondSection> {
             },
             controller: controller,
             validator: (value) {
-              return passValidator(value);
+              // return passValidator(value);
             },
           ),
           const SizedBox(

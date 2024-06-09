@@ -34,11 +34,13 @@ class AuthRepoImpl extends AuthRepo {
       RegisterRequestModel registerRequestModel) async {
     try {
       await apiServices.post(
-          endPoint: ApiEndPoints.loginEndPoint,
+          endPoint: ApiEndPoints.registerEndPoint,
           data: registerRequestModel.toJson());
       return right(null);
     } on Exception catch (e) {
       if (e is DioException) {
+        print(e);
+
         return Left(ServerFailure.fromDioError(e));
       } else {
         return left(ServerFailure(e.toString()));

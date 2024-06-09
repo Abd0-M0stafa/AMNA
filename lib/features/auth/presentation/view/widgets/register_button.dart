@@ -2,9 +2,10 @@ import 'package:cancer/core/helper/snake_bar.dart';
 import 'package:cancer/core/utils/app_colors.dart';
 import 'package:cancer/features/auth/presentation/view_model/register_cubit/register_cubit.dart';
 import 'package:cancer/features/auth/presentation/view_model/register_cubit/register_states.dart';
-import 'package:cancer/features/home/presentation/view/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../login_view.dart';
 
 class RegisterButton extends StatelessWidget {
   const RegisterButton({
@@ -23,7 +24,7 @@ class RegisterButton extends StatelessWidget {
         if (state is RegisterStateFailure) {
           customSnakeBar(context, text: state.errMessage);
         } else if (state is RegisterStateSuccess) {
-          navToHome(context);
+          navToLogin(context);
         }
       },
       builder: (context, state) {
@@ -62,11 +63,11 @@ class RegisterButton extends StatelessWidget {
     );
   }
 
-  void navToHome(BuildContext context) {
+  void navToLogin(BuildContext context) {
     Navigator.push(
       context,
       MaterialPageRoute<void>(
-        builder: (BuildContext context) => const HomeView(),
+        builder: (BuildContext context) => const LoginView(),
       ),
     );
   }
