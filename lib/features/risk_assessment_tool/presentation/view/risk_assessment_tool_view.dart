@@ -10,7 +10,19 @@ class RiskAssessmentToolView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: buildAppBar(context),
+      backgroundColor: AppColors.backColor,
+      body: PageView(
+        scrollDirection: Axis.horizontal,
+        children: const [
+          HowToUse(),
+          QuestionsForm(),
+        ],
+      ),
+    );
+  }
+
+  PreferredSizeWidget buildAppBar(BuildContext context) => AppBar(
         title: Text(
           'Risk Assessment Tool',
           style: AppStyles.bold30(context).copyWith(color: AppColors.primary),
@@ -18,15 +30,5 @@ class RiskAssessmentToolView extends StatelessWidget {
         centerTitle: true,
         iconTheme: const IconThemeData(color: AppColors.primary),
         backgroundColor: AppColors.appBarColor,
-      ),
-      backgroundColor: AppColors.backColor,
-      body: PageView(
-        scrollDirection: Axis.horizontal,
-        children: [
-          const HowToUse(),
-          QuestionsForm(),
-        ],
-      ),
-    );
-  }
+      );
 }
