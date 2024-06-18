@@ -1,5 +1,6 @@
 import 'package:cancer/core/helper/snake_bar.dart';
 import 'package:cancer/core/utils/app_colors.dart';
+import 'package:cancer/core/widgets/custom_loading_indicator.dart';
 import 'package:cancer/features/auth/presentation/view_model/register_cubit/register_cubit.dart';
 import 'package:cancer/features/auth/presentation/view_model/register_cubit/register_states.dart';
 import 'package:flutter/material.dart';
@@ -43,13 +44,7 @@ class RegisterButton extends StatelessWidget {
                     }
                   },
             child: (state is RegisterStateLoading)
-                ? const SizedBox(
-                    width: 20,
-                    height: 20,
-                    child: CircularProgressIndicator(
-                      color: AppColors.backColor,
-                    ),
-                  )
+                ? const CustomLoadingIndicator()
                 : const Text(
                     'Register',
                     style: TextStyle(
