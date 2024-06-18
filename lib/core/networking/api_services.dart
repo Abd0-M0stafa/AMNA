@@ -20,7 +20,7 @@ class ApiServices {
   Future<Map<String, dynamic>> post({
     required String endPoint,
     Map<String, dynamic>? headers,
-    required Map<String, dynamic> data,
+    required dynamic data,
   }) async {
     final result = await _dio.post(ApiConstance.baseUrl + endPoint,
         data: data,
