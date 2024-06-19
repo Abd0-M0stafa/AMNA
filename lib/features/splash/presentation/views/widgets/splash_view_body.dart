@@ -1,4 +1,6 @@
+import 'package:cancer/core/helper/shared_prefs.dart';
 import 'package:cancer/core/utils/app_colors.dart';
+import 'package:cancer/features/home/presentation/view/home_view.dart';
 import 'package:cancer/features/splash/presentation/views/widgets/sligding_text.dart';
 import 'package:cancer/features/welcome/presentation/view/wlcome_view.dart';
 import 'package:flutter/material.dart';
@@ -62,13 +64,15 @@ class _SplashViewBodyState extends State<SplashViewBody>
   }
 
   void navigateToHome() {
+    bool isLogin = SharedPrefs.prefs!.getBool('isLogin') ?? false;
     Future.delayed(
       const Duration(seconds: 2),
       () {
         Navigator.push(
           context,
           MaterialPageRoute<void>(
-            builder: (BuildContext context) => const WelcomeView(),
+            builder: (BuildContext context) =>
+                isLogin ? const HomeView() : const WelcomeView(),
           ),
         );
       },

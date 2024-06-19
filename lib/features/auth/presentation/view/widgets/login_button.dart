@@ -1,3 +1,4 @@
+import 'package:cancer/core/helper/shared_prefs.dart';
 import 'package:cancer/core/helper/snake_bar.dart';
 import 'package:cancer/core/utils/app_colors.dart';
 import 'package:cancer/features/auth/presentation/view_model/login_cubit/login_cubit.dart';
@@ -20,6 +21,7 @@ class LoginButton extends StatelessWidget {
         if (state is LoginFailureState) {
           customSnakeBar(context, text: state.errMessage);
         } else if (state is LoginSuccessState) {
+          SharedPrefs.prefs!.setBool('isLogin', true);
           navToHome(context);
         }
       },

@@ -11,39 +11,7 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: Padding(
-          padding: const EdgeInsets.only(bottom: 10),
-          child: Row(
-            children: [
-              Container(
-                width: 35,
-                decoration: ShapeDecoration(
-                  color: AppColors.primary,
-                  shape: CircleBorder(),
-                ),
-                child: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.person,
-                    size: 15,
-                    color: AppColors.appBarColor,
-                  ),
-                ),
-              ),
-              Expanded(
-                child: AspectRatio(
-                  aspectRatio: 7 / 1,
-                  child: Image.asset('assets/images/amna_logo.png'),
-                ),
-              ),
-              DropDownIcon(),
-            ],
-          ),
-        ),
-        backgroundColor: AppColors.appBarColor,
-      ),
+      appBar: buildAppBar(context),
       backgroundColor: AppColors.backColor,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -61,6 +29,42 @@ class HomeView extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  PreferredSizeWidget buildAppBar(BuildContext context) {
+    return AppBar(
+      automaticallyImplyLeading: false,
+      title: Padding(
+        padding: const EdgeInsets.only(bottom: 10),
+        child: Row(
+          children: [
+            Container(
+              width: 35,
+              decoration: ShapeDecoration(
+                color: AppColors.primary,
+                shape: CircleBorder(),
+              ),
+              child: IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.person,
+                  size: 15,
+                  color: AppColors.appBarColor,
+                ),
+              ),
+            ),
+            Expanded(
+              child: AspectRatio(
+                aspectRatio: 7 / 1,
+                child: Image.asset('assets/images/amna_logo.png'),
+              ),
+            ),
+            DropDownIcon(),
+          ],
+        ),
+      ),
+      backgroundColor: AppColors.appBarColor,
     );
   }
 }
