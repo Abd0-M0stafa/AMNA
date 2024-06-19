@@ -21,38 +21,39 @@ class UploadImage extends StatelessWidget {
           color: AppColors.primary,
           child: BlocBuilder<PickImageCubit, PickImageState>(
               builder: (context, state) {
-            return Padding(
-              padding: EdgeInsets.symmetric(
-                  vertical:
-                      PickImageCubit.get(context).imageXFile != null ? 0 : 80),
-              child: PickImageCubit.get(context).imageXFile != null
-                  ? AspectRatio(
-                      aspectRatio: 1,
-                      child: Image.file(
+            return AspectRatio(
+              aspectRatio: 1,
+              child: Padding(
+                padding: EdgeInsets.symmetric(
+                    vertical: PickImageCubit.get(context).imageXFile != null
+                        ? 0
+                        : 80),
+                child: PickImageCubit.get(context).imageXFile != null
+                    ? Image.file(
                         fit: BoxFit.cover,
                         PickImageCubit.get(context).imageFile!,
+                      )
+                    : Column(
+                        children: [
+                          const Center(
+                            child: Icon(
+                              Icons.upload_file_rounded,
+                              size: 50,
+                              color: AppColors.primary,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Center(
+                            child: Text(
+                              'Upload Your Image',
+                              style: AppStyles.mediamColored17(context),
+                            ),
+                          ),
+                        ],
                       ),
-                    )
-                  : Column(
-                      children: [
-                        const Center(
-                          child: Icon(
-                            Icons.upload_file_rounded,
-                            size: 50,
-                            color: AppColors.primary,
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        Center(
-                          child: Text(
-                            'Upload Your Image',
-                            style: AppStyles.mediamColored17(context),
-                          ),
-                        ),
-                      ],
-                    ),
+              ),
             );
           }),
         ),

@@ -18,7 +18,9 @@ class PickImageCubit extends Cubit<PickImageState> {
     var result = await imagePickerHelper.pickImageMethod();
 
     result.fold((l) => emit(PickImageFailure(l.errMessage)), (r) {
-      imageXFile = r;
+      if (r != null) {
+        imageXFile = r;
+      }
       convertToFile(r);
 
       emit(PickImageSuccess());

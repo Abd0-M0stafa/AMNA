@@ -36,13 +36,13 @@ class QuestionsForm extends StatelessWidget {
             ),
           ),
         ),
-        QuestionsList(),
+        const QuestionsList(),
         const SliverToBoxAdapter(
           child: SizedBox(
             height: 10,
           ),
         ),
-        SliverToBoxAdapter(
+        const SliverToBoxAdapter(
           child: CustomSubmitButton(),
         ),
         const SliverToBoxAdapter(

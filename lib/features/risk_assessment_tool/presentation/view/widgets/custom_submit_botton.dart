@@ -1,3 +1,4 @@
+import 'package:cancer/core/helper/show_alert_dialog.dart';
 import 'package:cancer/core/helper/snake_bar.dart';
 import 'package:cancer/core/utils/app_colors.dart';
 import 'package:cancer/core/utils/app_styles.dart';
@@ -22,7 +23,7 @@ class CustomSubmitButton extends StatelessWidget {
         child: BlocConsumer<PredictedMessageCubit, PredictedMessageState>(
           listener: (context, state) {
             if (state is PredictedMessageStateSuccess) {
-              customSnakeBar(context, text: state.predictMessage);
+              showAlert(context, state.predictMessage);
             } else if (state is PredictedMessageStateFailure) {
               customSnakeBar(context, text: state.errMessage);
             }
