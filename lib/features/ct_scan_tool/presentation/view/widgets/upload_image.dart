@@ -29,9 +29,12 @@ class UploadImage extends StatelessWidget {
                         ? 0
                         : 80),
                 child: PickImageCubit.get(context).imageXFile != null
-                    ? Image.file(
-                        fit: BoxFit.cover,
-                        PickImageCubit.get(context).imageFile!,
+                    ? Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Image.file(
+                          fit: BoxFit.cover,
+                          PickImageCubit.get(context).imageFile!,
+                        ),
                       )
                     : Column(
                         children: [

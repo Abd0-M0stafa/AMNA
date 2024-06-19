@@ -25,6 +25,8 @@ class PredictImageCubit extends Cubit<PredictImageState> {
       LoadingIndicator.hideLoadingIndicator(context);
       showAlert(context, state.predictMessage);
     } else if (state is PredictImageFailure) {
+      LoadingIndicator.hideLoadingIndicator(context);
+
       customSnakeBar(context, text: state.errMessage);
     } else if (state is PredictImageLoading) {
       LoadingIndicator.showLoadingIndicator(context);
