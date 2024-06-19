@@ -1,7 +1,6 @@
 import 'package:cancer/core/helper/image_picker.dart';
 import 'package:cancer/core/helper/permession_handler.dart';
 import 'package:cancer/core/networking/api_services.dart';
-import 'package:cancer/features/ct_scan_tool/data/ct_scan_repository.dart';
 import 'package:cancer/features/risk_assessment_tool/data/repository/risk_assessment_repo_impl.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';

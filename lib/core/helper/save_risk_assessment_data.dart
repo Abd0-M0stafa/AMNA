@@ -1,10 +1,10 @@
 import 'package:cancer/core/enums/assesstment_enum.dart';
+import 'package:cancer/features/risk_assessment_tool/data/models/risk_assessment_model.dart';
 import 'package:cancer/features/risk_assessment_tool/presentation/view_model/predicted_message_cubit/predicted_message_cubit.dart';
 import 'package:flutter/material.dart';
 
-import '../static_data/risk_assessment_data.dart';
-
-void saveDataToVariables(BuildContext context, int index) {
+void saveDataToVariables(BuildContext context, int index,
+    List<RiskAssessmentModel> riskAssessmentItems) {
   switch (riskAssessmentItems[index].assesstmentEnum) {
     case AssesstmentEnum.age:
       PredictedMessageCubit.get(context).age = riskAssessmentItems[index]

@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'custom_button.dart';
 import 'how_to_use.dart';
 import 'upload_image.dart';

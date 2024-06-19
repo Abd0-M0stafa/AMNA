@@ -5,7 +5,6 @@ import 'package:cancer/features/ct_scan_tool/presentation/view_model/predict_ima
 import 'package:cancer/features/ct_scan_tool/presentation/view_model/predict_image_cubit/predict_image_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../../core/helper/loading_indicator.dart';
 import '../../view_model/pick_image/pick_image_cubit.dart';
 
 class CustomButton extends StatelessWidget {
