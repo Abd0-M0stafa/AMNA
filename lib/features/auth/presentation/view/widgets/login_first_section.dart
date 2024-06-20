@@ -10,7 +10,7 @@ class LoginFirstSection extends StatelessWidget {
     return Column(
       children: [
         const SizedBox(
-          height: 60,
+          height: 80,
         ),
         AspectRatio(
             aspectRatio: 10 / 8.5,

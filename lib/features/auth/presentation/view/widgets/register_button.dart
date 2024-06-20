@@ -33,6 +33,9 @@ class RegisterButton extends StatelessWidget {
           width: double.infinity,
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(15)),
+              ),
               backgroundColor: AppColors.primary,
             ),
             onPressed: (state is RegisterStateLoading)

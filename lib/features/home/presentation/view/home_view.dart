@@ -39,20 +39,23 @@ class HomeView extends StatelessWidget {
         padding: const EdgeInsets.only(bottom: 10),
         child: Row(
           children: [
-            Container(
+            // Container(
+            //   width: 35,
+            //   decoration: ShapeDecoration(
+            //     color: AppColors.primary,
+            //     shape: CircleBorder(),
+            //   ),
+            //   child: IconButton(
+            //     onPressed: () {},
+            //     icon: const Icon(
+            //       Icons.person,
+            //       size: 15,
+            //       color: AppColors.appBarColor,
+            //     ),
+            //   ),
+            // ),
+            const SizedBox(
               width: 35,
-              decoration: ShapeDecoration(
-                color: AppColors.primary,
-                shape: CircleBorder(),
-              ),
-              child: IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  Icons.person,
-                  size: 15,
-                  color: AppColors.appBarColor,
-                ),
-              ),
             ),
             Expanded(
               child: AspectRatio(

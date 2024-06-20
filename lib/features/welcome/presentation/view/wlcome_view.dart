@@ -31,7 +31,7 @@ class WelcomeView extends StatelessWidget {
             ),
             CustomLoginButton(),
             const SizedBox(
-              height: 20,
+              height: 13,
             ),
             CustomRegeterButton(),
           ],

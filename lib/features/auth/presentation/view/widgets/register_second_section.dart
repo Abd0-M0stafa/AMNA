@@ -3,7 +3,6 @@ import 'package:cancer/features/auth/presentation/view/widgets/confirm_pass_text
 import 'package:cancer/features/auth/presentation/view/widgets/email_text_field.dart';
 import 'package:cancer/features/auth/presentation/view/widgets/password_text_field.dart';
 import 'package:cancer/features/auth/presentation/view/widgets/register_button.dart';
-import 'package:cancer/features/auth/presentation/view/widgets/register_with.dart';
 import 'package:cancer/features/auth/presentation/view/widgets/reminder.dart';
 import 'package:cancer/features/auth/presentation/view/widgets/username_text_field.dart';
 import 'package:cancer/features/auth/presentation/view_model/register_cubit/register_cubit.dart';
@@ -91,10 +90,10 @@ class _RegisterSecondSectionState extends State<RegisterSecondSection> {
               );
             },
           ),
-          const SizedBox(
-            height: 15,
-          ),
-          RegisterWith(),
+          // const SizedBox(
+          //   height: 15,
+          // ),
+          // RegisterWith(),
           const SizedBox(
             height: 25,
           ),
