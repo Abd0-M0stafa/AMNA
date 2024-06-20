@@ -1,4 +1,5 @@
 import 'package:cancer/core/helper/shared_prefs.dart';
+import 'package:cancer/core/helper/snake_bar.dart';
 import 'package:cancer/core/utils/app_colors.dart';
 import 'package:cancer/features/welcome/presentation/view/wlcome_view.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
@@ -14,8 +15,12 @@ class DropDownIcon extends StatefulWidget {
 class _DropDownIconState extends State<DropDownIcon> {
   @override
   Widget build(BuildContext context) {
-    final MenuItem fistItem =
-        MenuItem(text: 'Settings', icon: Icons.settings, onTap: () {});
+    final MenuItem fistItem = MenuItem(
+        text: 'Settings',
+        icon: Icons.settings,
+        onTap: () {
+          customSnakeBar(context, text: 'This feature will be available soon');
+        });
     final MenuItem secondItem = MenuItem(
         text: 'Log Out',
         icon: Icons.logout,
