@@ -13,11 +13,14 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 50),
+      padding: const EdgeInsets.symmetric(horizontal: 47),
       child: SizedBox(
         width: double.infinity,
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
             backgroundColor: AppColors.primary,
           ),
           onPressed: () async {

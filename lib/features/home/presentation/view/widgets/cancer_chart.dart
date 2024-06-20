@@ -66,7 +66,7 @@ class _ChartState extends State<Chart> {
           radius: isActive == 1 ? 40 : 30,
           showTitle: true,
           value: widget.secondValue,
-          color: const Color.fromARGB(255, 228, 225, 213),
+          color: const Color.fromARGB(255, 217, 215, 205),
         ),
       ],
     );
