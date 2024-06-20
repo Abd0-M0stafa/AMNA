@@ -14,9 +14,12 @@ class CustomSubmitButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 100),
+      padding: const EdgeInsets.symmetric(horizontal: 60),
       child: ElevatedButton(
-        style: ElevatedButton.styleFrom(backgroundColor: AppColors.primary),
+        style: ElevatedButton.styleFrom(
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+            backgroundColor: AppColors.primary),
         onPressed: () {
           PredictedMessageCubit.get(context).predictedMessage();
         },

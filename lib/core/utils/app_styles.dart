@@ -34,6 +34,14 @@ abstract class AppStyles {
     );
   }
 
+  static TextStyle mediamColored20(context) {
+    return TextStyle(
+      color: AppColors.primary,
+      fontWeight: FontWeight.w700,
+      fontSize: getResponsiveFontSize(context, 20),
+    );
+  }
+
   static TextStyle bold30(context) {
     return TextStyle(
       fontWeight: FontWeight.w700,

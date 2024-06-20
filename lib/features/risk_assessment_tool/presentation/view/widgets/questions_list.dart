@@ -19,31 +19,35 @@ class _QuestionsListState extends State<QuestionsList> {
       itemCount: riskAssessmentItems.length,
       itemBuilder: (context, index) {
         return Padding(
-          padding: const EdgeInsets.symmetric(vertical: 20),
+          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 riskAssessmentItems[index].question,
-                style: AppStyles.mediamColored17(context),
+                style: AppStyles.mediamColored20(context),
               ),
               const SizedBox(
                 height: 10,
               ),
-              Column(
-                children: List.generate(
-                    riskAssessmentItems[index].answers.length, (answerIndex) {
-                  return GestureDetector(
-                    onTap: () {
-                      updateIndexOfAnswer(index, answerIndex);
-                      saveDataToVariables(context, index, riskAssessmentItems);
-                    },
-                    child: CustomButton(
-                        text: riskAssessmentItems[index].answers[answerIndex],
-                        isActive: riskAssessmentItems[index].indexOfActive ==
-                            answerIndex),
-                  );
-                }),
+              Padding(
+                padding: const EdgeInsets.only(left: 5, right: 10),
+                child: Column(
+                  children: List.generate(
+                      riskAssessmentItems[index].answers.length, (answerIndex) {
+                    return GestureDetector(
+                      onTap: () {
+                        updateIndexOfAnswer(index, answerIndex);
+                        saveDataToVariables(
+                            context, index, riskAssessmentItems);
+                      },
+                      child: CustomButton(
+                          text: riskAssessmentItems[index].answers[answerIndex],
+                          isActive: riskAssessmentItems[index].indexOfActive ==
+                              answerIndex),
+                    );
+                  }),
+                ),
               )
             ],
           ),
@@ -60,7 +64,7 @@ class _QuestionsListState extends State<QuestionsList> {
   List<RiskAssessmentModel> riskAssessmentItems = [
     RiskAssessmentModel(
         assesstmentEnum: AssesstmentEnum.age,
-        question: "1) What is your age (age group)?",
+        question: "What is your age (age group)?",
         answers: [
           '18-29',
           '30-34',
@@ -78,7 +82,7 @@ class _QuestionsListState extends State<QuestionsList> {
         ]),
     RiskAssessmentModel(
         assesstmentEnum: AssesstmentEnum.race,
-        question: "2) What is your race/ethnicity?",
+        question: "What is your race/ethnicity?",
         answers: [
           'Non-Hispanic white',
           'Non-Hispanic black',
@@ -90,7 +94,7 @@ class _QuestionsListState extends State<QuestionsList> {
     RiskAssessmentModel(
         assesstmentEnum: AssesstmentEnum.firstDegree,
         question:
-            "3) Have any of your first-degree relatives (mother, sister or daughter) been diagnosed with breast cancer?",
+            "Have any of your first-degree relatives (mother, sister or daughter) been diagnosed with breast cancer?",
         answers: [
           'Yes',
           'No',
@@ -98,7 +102,7 @@ class _QuestionsListState extends State<QuestionsList> {
     RiskAssessmentModel(
         assesstmentEnum: AssesstmentEnum.period,
         question:
-            "4) How old were you when you had your first menstrual period (Age at menarche)?",
+            "How old were you when you had your first menstrual period (Age at menarche)?",
         answers: [
           'Age 14 or older',
           'Age 12-13',
@@ -106,7 +110,7 @@ class _QuestionsListState extends State<QuestionsList> {
         ]),
     RiskAssessmentModel(
         assesstmentEnum: AssesstmentEnum.ageFirstChild,
-        question: "5) What was your age when you had your first child?",
+        question: "What was your age when you had your first child?",
         answers: [
           'Age < 20',
           'Age 20-24',
@@ -116,14 +120,14 @@ class _QuestionsListState extends State<QuestionsList> {
         ]),
     RiskAssessmentModel(
         assesstmentEnum: AssesstmentEnum.breastBiopsies,
-        question: "6) Have you had any prior breast biopsies or aspiration?",
+        question: "Have you had any prior breast biopsies or aspiration?",
         answers: [
           'Yes',
           'No',
         ]),
     RiskAssessmentModel(
         assesstmentEnum: AssesstmentEnum.bI,
-        question: "7) What is your BI-RADS breast density?",
+        question: "What is your BI-RADS breast density?",
         answers: [
           'Almost entirely fat',
           'Scattered fibroglandular densities',
@@ -132,14 +136,14 @@ class _QuestionsListState extends State<QuestionsList> {
         ]),
     RiskAssessmentModel(
         assesstmentEnum: AssesstmentEnum.menopausalStatus,
-        question: "8) What is your menopausal status?",
+        question: "What is your menopausal status?",
         answers: [
           'Pre-or peri-menopausal',
           'Post-menopausal',
         ]),
     RiskAssessmentModel(
         assesstmentEnum: AssesstmentEnum.mass,
-        question: "9) What is your body mass index (kg/m^2)?",
+        question: "What is your body mass index (kg/m^2)?",
         answers: [
           '10-24.99',
           '25-29.99',

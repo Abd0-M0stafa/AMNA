@@ -15,6 +15,7 @@ class CustomButton extends StatelessWidget {
       child: Align(
         alignment: Alignment.centerLeft,
         child: AnimatedContainer(
+          width: double.infinity,
           duration: const Duration(milliseconds: 500),
           decoration: BoxDecoration(
             color: isActive ? AppColors.primary : Colors.white,
