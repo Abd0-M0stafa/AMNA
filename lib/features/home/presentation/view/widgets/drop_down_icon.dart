@@ -1,4 +1,6 @@
+import 'package:cancer/core/helper/shared_prefs.dart';
 import 'package:cancer/core/utils/app_colors.dart';
+import 'package:cancer/features/welcome/presentation/view/wlcome_view.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 
@@ -12,8 +14,19 @@ class DropDownIcon extends StatefulWidget {
 class _DropDownIconState extends State<DropDownIcon> {
   @override
   Widget build(BuildContext context) {
+    final MenuItem fistItem =
+        MenuItem(text: 'Settings', icon: Icons.settings, onTap: () {});
+    final MenuItem secondItem = MenuItem(
+        text: 'Log Out',
+        icon: Icons.logout,
+        onTap: () {
+          SharedPrefs.prefs!.setBool('isLogin', false);
+          Navigator.pushReplacement(context,
+              MaterialPageRoute(builder: (context) => const WelcomeView()));
+        });
     return DropdownButtonHideUnderline(
       child: DropdownButton2(
+        onChanged: (value) {},
         customButton: const Icon(
           Icons.more_vert_outlined,
           color: AppColors.primary,
@@ -21,21 +34,18 @@ class _DropDownIconState extends State<DropDownIcon> {
         items: [
           ...MenuItems.firstItems.map(
             (item) => DropdownMenuItem<MenuItem>(
-              value: item,
-              child: MenuItems.buildItem(item),
+              value: fistItem,
+              child: MenuItems.buildItem(fistItem),
             ),
           ),
           const DropdownMenuItem<Divider>(enabled: false, child: SizedBox()),
           ...MenuItems.secondItems.map(
             (item) => DropdownMenuItem<MenuItem>(
-              value: item,
-              child: MenuItems.buildItem(item),
+              value: secondItem,
+              child: MenuItems.buildItem(secondItem),
             ),
           ),
         ],
-        onChanged: (value) {
-          MenuItems.onChanged(context, value! as MenuItem);
-        },
         dropdownStyleData: DropdownStyleData(
           width: 160,
           padding: const EdgeInsets.symmetric(vertical: 6),
@@ -56,52 +66,58 @@ class _DropDownIconState extends State<DropDownIcon> {
       ),
     );
   }
+
+  List<MenuItem> firstItems = [];
+  List<MenuItem> secondItems = [];
 }
 
 class MenuItem {
   const MenuItem({
     required this.text,
     required this.icon,
+    required this.onTap,
   });
 
   final String text;
   final IconData icon;
+  final Function onTap;
 }
 
 abstract class MenuItems {
-  static const List<MenuItem> firstItems = [settings];
-  static const List<MenuItem> secondItems = [logout];
+  static List<MenuItem> firstItems = [settings];
+  static List<MenuItem> secondItems = [logout];
 
-  static const settings = MenuItem(text: 'Settings', icon: Icons.settings);
-  static const logout = MenuItem(text: 'Log Out', icon: Icons.logout);
+  static final settings =
+      MenuItem(text: 'Settings', icon: Icons.settings, onTap: () {});
+  static final logout = MenuItem(
+      text: 'Log Out',
+      icon: Icons.logout,
+      onTap: () {
+        SharedPrefs.prefs!.setBool('isLogin', false);
+        // Navigator.pushReplacement(context, MaterialPageRoute(builder: builder));
+      });
 
   static Widget buildItem(MenuItem item) {
-    return Row(
-      children: [
-        Icon(item.icon, color: Colors.white, size: 22),
-        const SizedBox(
-          width: 10,
-        ),
-        Expanded(
-          child: Text(
-            item.text,
-            style: const TextStyle(
-              color: Colors.white,
+    return InkWell(
+      onTap: () {
+        item.onTap();
+      },
+      child: Row(
+        children: [
+          Icon(item.icon, color: Colors.white, size: 22),
+          const SizedBox(
+            width: 10,
+          ),
+          Expanded(
+            child: Text(
+              item.text,
+              style: const TextStyle(
+                color: Colors.white,
+              ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
-  }
-
-  static void onChanged(BuildContext context, MenuItem item) {
-    switch (item) {
-      case MenuItems.settings:
-        //Do something
-        break;
-      case MenuItems.logout:
-        //Do something
-        break;
-    }
   }
 }

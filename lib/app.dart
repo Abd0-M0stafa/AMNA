@@ -1,6 +1,5 @@
+import 'package:cancer/features/splash/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
-
-import 'features/home/presentation/view/home_view.dart';
 
 class CancerApp extends StatelessWidget {
   const CancerApp({super.key});
@@ -10,7 +9,7 @@ class CancerApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData.dark(),
       debugShowCheckedModeBanner: false,
-      home: const HomeView(),
+      home: const SplashView(),
     );
   }
 }
