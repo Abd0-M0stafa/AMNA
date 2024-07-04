@@ -25,15 +25,15 @@ class WelcomeView extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            WelcomeText(),
+            const WelcomeText(),
             const SizedBox(
               height: 40,
             ),
-            CustomLoginButton(),
+            const CustomLoginButton(),
             const SizedBox(
               height: 13,
             ),
-            CustomRegeterButton(),
+            const CustomRegeterButton(),
           ],
         ),
       ),

@@ -18,7 +18,7 @@ class Reminder extends StatelessWidget {
       children: [
         Text(
           question,
-          style: TextStyle(
+          style: const TextStyle(
             color: AppColors.primary,
           ),
         ),
@@ -29,7 +29,7 @@ class Reminder extends StatelessWidget {
           onPressed: onPressed,
           child: Text(
             button,
-            style: TextStyle(
+            style: const TextStyle(
               color: AppColors.primary,
               fontWeight: FontWeight.bold,
             ),

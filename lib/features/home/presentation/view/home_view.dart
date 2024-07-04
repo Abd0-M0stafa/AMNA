@@ -13,8 +13,8 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       appBar: buildAppBar(context),
       backgroundColor: AppColors.backColor,
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
+      body: const Padding(
+        padding: EdgeInsets.symmetric(horizontal: 16),
         child: CustomScrollView(
           slivers: [
             SliverToBoxAdapter(
@@ -63,7 +63,7 @@ class HomeView extends StatelessWidget {
                 child: Image.asset('assets/images/amna_logo.png'),
               ),
             ),
-            DropDownIcon(),
+            const DropDownIcon(),
           ],
         ),
       ),

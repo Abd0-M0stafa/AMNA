@@ -1,6 +1,7 @@
 import 'package:cancer/features/auth/presentation/view/register_view.dart';
 import 'package:cancer/features/auth/presentation/view/widgets/email_text_field.dart';
 import 'package:cancer/features/auth/presentation/view/widgets/login_button.dart';
+import 'package:cancer/features/auth/presentation/view/widgets/login_with.dart';
 import 'package:cancer/features/auth/presentation/view/widgets/password_text_field.dart';
 import 'package:cancer/features/auth/presentation/view/widgets/reminder.dart';
 import 'package:cancer/features/auth/presentation/view_model/login_cubit/login_cubit.dart';
@@ -64,10 +65,10 @@ class _LoginSecondSectionState extends State<LoginSecondSection> {
               );
             },
           ),
-          // const SizedBox(
-          //   height: 10,
-          // ),
-          // LoginWith(),
+          const SizedBox(
+            height: 10,
+          ),
+          const LoginWith(),
           const SizedBox(
             height: 25,
           ),

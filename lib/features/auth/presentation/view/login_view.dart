@@ -15,11 +15,11 @@ class LoginView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => LoginCubit(AuthRepoImpl(ApiServices(Dio()))),
-      child: Scaffold(
+      child: const Scaffold(
         backgroundColor: AppColors.backColor,
         body: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15),
+            padding: EdgeInsets.symmetric(horizontal: 15),
             child: Column(
               children: [
                 LoginFirstSection(),

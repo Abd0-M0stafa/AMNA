@@ -16,7 +16,8 @@ class WelcomeText extends StatelessWidget {
           ),
         ),
         Text(
-          'efhuuihiuhweiuhgiuhiuh\ndsggudsgugdudasuia',
+          textAlign: TextAlign.center,
+          'Amna is your guide to breast health.\nTake charge today and start your journey!',
           style: AppStyles.mediam16(context),
         ),
       ],

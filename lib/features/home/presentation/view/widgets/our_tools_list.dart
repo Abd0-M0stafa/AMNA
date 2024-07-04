@@ -19,21 +19,21 @@ class OurToolsList extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute<void>(
-              builder: (BuildContext context) => RiskAssessmentToolView(),
+              builder: (BuildContext context) => const RiskAssessmentToolView(),
             ),
           );
         },
       ),
       ToolsCardModel(
         icon: Icons.image,
-        title: 'CT Scan Tool',
+        title: 'Breast Ultrasound Classifier',
         description:
-            'A powerful tool that helps those concerned to predict their risk of developing breast cancer through their CT scan images. It\'s a readily available tool that can be used anywhere, anytime easily to understand CT scans quickly.',
+            'A powerful tool that helps those concerned to predict their risk of developing breast cancer through their ultrasound images. It\'s a readily available tool that can be used anywhere, anytime easily to understand ultrasound scans quickly.',
         onTap: () {
           Navigator.push(
             context,
             MaterialPageRoute<void>(
-              builder: (BuildContext context) => CtScanToolView(),
+              builder: (BuildContext context) => const CtScanToolView(),
             ),
           );
         },

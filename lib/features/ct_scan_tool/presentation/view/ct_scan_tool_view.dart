@@ -30,9 +30,9 @@ class CtScanToolView extends StatelessWidget {
           title: Padding(
             padding: const EdgeInsets.only(bottom: 7),
             child: Text(
-              'CT Scan',
+              'Breast Ultrasound Classifie',
               style:
-                  AppStyles.bold30(context).copyWith(color: AppColors.primary),
+                  AppStyles.bold25(context).copyWith(color: AppColors.primary),
             ),
           ),
           iconTheme: const IconThemeData(color: AppColors.primary),

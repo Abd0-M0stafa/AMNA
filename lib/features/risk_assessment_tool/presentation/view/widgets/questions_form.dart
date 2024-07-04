@@ -9,7 +9,9 @@ class QuestionsForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: prefer_const_constructors
     return CustomScrollView(
+      // ignore: prefer_const_literals_to_create_immutables
       slivers: [
         const QuestionsList(),
         const SliverToBoxAdapter(

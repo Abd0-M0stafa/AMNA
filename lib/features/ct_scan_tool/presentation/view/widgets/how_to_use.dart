@@ -11,7 +11,7 @@ class HowToUse extends StatelessWidget {
       child: CustomContainer(
           title: 'How to use?',
           subTitle:
-              '1) Upload your CT scan securely.\n2) AI-powered analysis: Our advanced technology analyzes your scan and predicts the likelihood of a breast mass being:\n\n- Benign (non-cancerous): Providing peace of mind.\n- Malignant (cancerous): Helping you get the care you need quickly.\n- Normal tissue: Minimizing unnecessary follow-up procedures.'),
+              '1) Upload your breast ultrasound scan securely.\n2) AI-powered analysis: Our advanced technology analyzes your scan and predicts the likelihood of a breast mass being:\n\n- Benign (non-cancerous): Providing peace of mind.\n- Malignant (cancerous): Helping you get the care you need quickly.\n- Normal tissue: Minimizing unnecessary follow-up procedures.'),
     );
   }
 }

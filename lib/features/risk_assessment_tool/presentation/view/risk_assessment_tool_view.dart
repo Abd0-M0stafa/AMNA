@@ -34,7 +34,7 @@ class RiskAssessmentToolView extends StatelessWidget {
   PreferredSizeWidget buildAppBar(BuildContext context) => AppBar(
         title: Text(
           'Risk Assessment Tool',
-          style: AppStyles.bold30(context).copyWith(color: AppColors.primary),
+          style: AppStyles.bold25(context).copyWith(color: AppColors.primary),
         ),
         centerTitle: true,
         iconTheme: const IconThemeData(color: AppColors.primary),

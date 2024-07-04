@@ -42,6 +42,13 @@ abstract class AppStyles {
     );
   }
 
+  static TextStyle bold25(context) {
+    return TextStyle(
+      fontWeight: FontWeight.w700,
+      fontSize: getResponsiveFontSize(context, 25),
+    );
+  }
+
   static TextStyle bold30(context) {
     return TextStyle(
       fontWeight: FontWeight.w700,
