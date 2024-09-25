@@ -15,13 +15,13 @@ class CtScanRepositoryImpl extends CtScanRepository {
     final formData = await convertImageData(imageFile);
     try {
       final result = await apiServices.post(
-        endPoint: ApiEndPoints.ctScanEndPoint,
-        data: formData,
+        url: ApiEndPoints.ctScanEndPoint,
+        body: formData,
       );
       return right(result['message']);
     } on Exception catch (e) {
       if (e is DioException) {
-        return Left(ServerFailure.fromDioError(e));
+        return Left(ServerFailure.fromDioException(e));
       } else {
         return left(ServerFailure(e.toString()));
       }

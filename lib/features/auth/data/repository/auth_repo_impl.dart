@@ -1,4 +1,5 @@
 import 'package:cancer/core/errors/failures.dart';
+import 'package:cancer/core/networking/api_constance.dart';
 import 'package:cancer/core/networking/api_end_points.dart';
 import 'package:cancer/core/networking/api_services.dart';
 import 'package:cancer/features/auth/data/models/login_request_model.dart';
@@ -16,13 +17,13 @@ class AuthRepoImpl extends AuthRepo {
       LoginRequestModel loginRequestModel) async {
     try {
       await apiServices.post(
-          endPoint: ApiEndPoints.loginEndPoint,
-          data: loginRequestModel.toJson());
+          url: ApiConstance.baseUrl + ApiEndPoints.loginEndPoint,
+          body: loginRequestModel.toJson());
       return right(null);
     } on Exception catch (e) {
       if (e is DioException) {
         print(e);
-        return Left(ServerFailure.fromDioError(e));
+        return Left(ServerFailure.fromDioException(e));
       } else {
         return left(ServerFailure(e.toString()));
       }
@@ -34,14 +35,14 @@ class AuthRepoImpl extends AuthRepo {
       RegisterRequestModel registerRequestModel) async {
     try {
       await apiServices.post(
-          endPoint: ApiEndPoints.registerEndPoint,
-          data: registerRequestModel.toJson());
+          url: ApiConstance.baseUrl + ApiEndPoints.registerEndPoint,
+          body: registerRequestModel.toJson());
       return right(null);
     } on Exception catch (e) {
       if (e is DioException) {
         print(e);
 
-        return Left(ServerFailure.fromDioError(e));
+        return Left(ServerFailure.fromDioException(e));
       } else {
         return left(ServerFailure(e.toString()));
       }

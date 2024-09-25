@@ -15,15 +15,15 @@ class RiskAssessmentRepoImpl extends RiskAssessmentRepo {
       PredictedMessageRequestModel predictedMessageRequestModel) async {
     try {
       final result = await apiServices.post(
-        endPoint: ApiEndPoints.predictedMessageEndPoint,
-        data: predictedMessageRequestModel.toJson(),
+        url: ApiEndPoints.predictedMessageEndPoint,
+        body: predictedMessageRequestModel.toJson(),
       );
 
       return right(result['message']);
     } on Exception catch (e) {
       if (e is DioException) {
         print(e);
-        return Left(ServerFailure.fromDioError(e));
+        return Left(ServerFailure.fromDioException(e));
       } else {
         return left(ServerFailure(e.toString()));
       }

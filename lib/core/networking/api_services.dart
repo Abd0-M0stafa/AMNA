@@ -1,34 +1,9 @@
-import 'package:cancer/core/networking/api_constance.dart';
-import 'package:dio/dio.dart';
-
-class ApiServices {
-  final Dio _dio;
-
-  ApiServices(this._dio);
-
-  Future<Map<String, dynamic>> get(
-      {required String endPoint, Map<String, dynamic>? headers}) async {
-    final result = await _dio.get(ApiConstance.baseUrl + endPoint,
-        options: Options(
-            headers: headers ??
-                {
-                  'Content-Type': ApiConstance.contentType,
-                }));
-    return result.data;
-  }
-
-  Future<Map<String, dynamic>> post({
-    required String endPoint,
-    Map<String, dynamic>? headers,
-    required dynamic data,
-  }) async {
-    final result = await _dio.post(ApiConstance.baseUrl + endPoint,
-        data: data,
-        options: Options(
-            headers: headers ??
-                {
-                  'Content-Type': ApiConstance.contentType,
-                }));
-    return result.data;
-  }
+abstract class ApiServices {
+  Future<Map<String, dynamic>> get(String url);
+  Future<Map<String, dynamic>> post(
+      {required String url,
+      required dynamic body,
+      Map<String, dynamic>? headers});
+  Future<Map<String, dynamic>> put(String url, Map<String, dynamic> body);
+  Future<Map<String, dynamic>> delete(String url);
 }

@@ -72,7 +72,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
           context,
           MaterialPageRoute<void>(
             builder: (BuildContext context) =>
-                isLogin ? const HomeView() : const WelcomeView(),
+                isLogin ? const HomeView() : const HomeView(),
           ),
         );
       },

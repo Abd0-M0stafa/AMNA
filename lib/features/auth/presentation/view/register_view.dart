@@ -1,3 +1,4 @@
+import 'package:cancer/core/helper/service_locator.dart';
 import 'package:cancer/core/networking/api_services.dart';
 import 'package:cancer/core/utils/app_colors.dart';
 import 'package:cancer/features/auth/data/repository/auth_repo_impl.dart';
@@ -14,7 +15,8 @@ class RegisterView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => RegisterCubit(AuthRepoImpl(ApiServices(Dio()))),
+      create: (context) =>
+          RegisterCubit(ServiceLocator.getIt.get<AuthRepoImpl>()),
       child: const Scaffold(
         backgroundColor: AppColors.backColor,
         body: SingleChildScrollView(

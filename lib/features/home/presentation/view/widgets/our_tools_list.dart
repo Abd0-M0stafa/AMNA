@@ -1,6 +1,8 @@
+import 'package:cancer/features/chat/presentation/view/home_view.dart';
 import 'package:cancer/features/ct_scan_tool/presentation/view/ct_scan_tool_view.dart';
 import 'package:cancer/features/home/data/models/tools_card_model.dart';
 import 'package:cancer/features/home/presentation/view/widgets/custom_tools_card.dart';
+import 'package:cancer/features/recorder/presentation/view/recorder_view.dart';
 import 'package:cancer/features/risk_assessment_tool/presentation/view/risk_assessment_tool_view.dart';
 import 'package:flutter/material.dart';
 
@@ -34,6 +36,34 @@ class OurToolsList extends StatelessWidget {
             context,
             MaterialPageRoute<void>(
               builder: (BuildContext context) => const CtScanToolView(),
+            ),
+          );
+        },
+      ),
+      ToolsCardModel(
+        icon: Icons.image,
+        title: 'Chat Bot',
+        description:
+            'A powerful tool that helps those concerned to predict their risk of developing breast cancer through their ultrasound images. It\'s a readily available tool that can be used anywhere, anytime easily to understand ultrasound scans quickly.',
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute<void>(
+              builder: (BuildContext context) => const ChatView(),
+            ),
+          );
+        },
+      ),
+      ToolsCardModel(
+        icon: Icons.image,
+        title: 'Talking Support',
+        description:
+            'A powerful tool that helps those concerned to predict their risk of developing breast cancer through their ultrasound images. It\'s a readily available tool that can be used anywhere, anytime easily to understand ultrasound scans quickly.',
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute<void>(
+              builder: (BuildContext context) => const RecorderView(),
             ),
           );
         },
