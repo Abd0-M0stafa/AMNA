@@ -1,8 +1,8 @@
 import 'package:cancer/core/helper/shared_prefs.dart';
 import 'package:cancer/core/utils/app_colors.dart';
+import 'package:cancer/features/auth/presentation/view/login_view.dart';
 import 'package:cancer/features/home/presentation/view/home_view.dart';
 import 'package:cancer/features/splash/presentation/views/widgets/sligding_text.dart';
-import 'package:cancer/features/welcome/presentation/view/wlcome_view.dart';
 import 'package:flutter/material.dart';
 
 class SplashViewBody extends StatefulWidget {

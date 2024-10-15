@@ -11,9 +11,9 @@ class RecorderViewBody extends StatelessWidget {
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.only(top: 25, left: 12),
+            padding: const EdgeInsets.only(top: 35, left: 12),
             child: Align(
-              alignment: Alignment.centerLeft,
+              alignment: Alignment.bottomLeft,
               child: IconButton(
                   onPressed: () {
                     Navigator.pop(context);

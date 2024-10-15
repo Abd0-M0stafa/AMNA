@@ -41,7 +41,7 @@ class OurToolsList extends StatelessWidget {
         },
       ),
       ToolsCardModel(
-        icon: Icons.image,
+        icon: Icons.chat,
         title: 'Chat Bot',
         description:
             'A powerful tool that helps those concerned to predict their risk of developing breast cancer through their ultrasound images. It\'s a readily available tool that can be used anywhere, anytime easily to understand ultrasound scans quickly.',
@@ -55,7 +55,7 @@ class OurToolsList extends StatelessWidget {
         },
       ),
       ToolsCardModel(
-        icon: Icons.image,
+        icon: Icons.mic,
         title: 'Talking Support',
         description:
             'A powerful tool that helps those concerned to predict their risk of developing breast cancer through their ultrasound images. It\'s a readily available tool that can be used anywhere, anytime easily to understand ultrasound scans quickly.',

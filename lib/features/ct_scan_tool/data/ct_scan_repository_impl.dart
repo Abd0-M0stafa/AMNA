@@ -1,4 +1,5 @@
 import 'package:cancer/core/errors/failures.dart';
+import 'package:cancer/core/networking/api_constance.dart';
 import 'package:cancer/core/networking/api_end_points.dart';
 import 'package:cancer/core/networking/api_services.dart';
 import 'package:cancer/features/ct_scan_tool/data/ct_scan_repository.dart';
@@ -15,7 +16,7 @@ class CtScanRepositoryImpl extends CtScanRepository {
     final formData = await convertImageData(imageFile);
     try {
       final result = await apiServices.post(
-        url: ApiEndPoints.ctScanEndPoint,
+        url: ApiConstance.baseUrl + ApiEndPoints.ctScanEndPoint,
         body: formData,
       );
       return right(result['message']);

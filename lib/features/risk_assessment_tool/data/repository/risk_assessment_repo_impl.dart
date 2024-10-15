@@ -1,4 +1,5 @@
 import 'package:cancer/core/errors/failures.dart';
+import 'package:cancer/core/networking/api_constance.dart';
 import 'package:cancer/core/networking/api_end_points.dart';
 import 'package:cancer/core/networking/api_services.dart';
 import 'package:cancer/features/risk_assessment_tool/data/models/predicted_message_request_model.dart';
@@ -15,7 +16,7 @@ class RiskAssessmentRepoImpl extends RiskAssessmentRepo {
       PredictedMessageRequestModel predictedMessageRequestModel) async {
     try {
       final result = await apiServices.post(
-        url: ApiEndPoints.predictedMessageEndPoint,
+        url: ApiConstance.baseUrl + ApiEndPoints.predictedMessageEndPoint,
         body: predictedMessageRequestModel.toJson(),
       );
 
